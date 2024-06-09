@@ -272,7 +272,6 @@ krsf.screenSharpness = krsf.screenSharpness || (krsf.screenSharpness = {});
       Game_Interpreter.prototype.pluginCommand = function (command, args){
          _Game_Interpreter_pluginCommand.call(this, command, args);
 
-         let arg1, arg2, arg3;
          if (command.toLowerCase() === PLUGIN_NAME.toLowerCase()) {
             switch(args[0].toLowerCase()){
                case 'setfilter':
@@ -297,7 +296,7 @@ krsf.screenSharpness = krsf.screenSharpness || (krsf.screenSharpness = {});
       });
    }
 
-   function _commandSetfilter(arg){
+   function _commandSetfilter(args){
       let arg1, arg2, arg3
       arg1 = (args[1] == '' || args[1] === undefined ) ? null : args[1];
       arg2 = (args[2] == '' || args[2] === undefined ) ? null : parseInt(args[2]);
@@ -306,7 +305,7 @@ krsf.screenSharpness = krsf.screenSharpness || (krsf.screenSharpness = {});
       _applySvgFilter(arg1, arg2, arg3);
    }
 
-   function _commandEnablefilter(arg){
+   function _commandEnablefilter(args){
       let arg1, arg2, arg3
       arg1 = (args[1] == '' || args[1] === undefined ) 
             ? null 
@@ -387,8 +386,8 @@ krsf.screenSharpness = krsf.screenSharpness || (krsf.screenSharpness = {});
 
 
 //(24/06/08)kuji:
-// _realScaleに0.99875とか1px程度の誤差がでる問題あったような気がする。スクリーンサイズ誤差だっけ？
-// このプラグイン単体だと必要かもしれない。
+// _realScaleが0.999875とか1px未満の誤差がでるケースがあったような気がする。スクリーンサイズが小数点で誤差でるみたいなの。
+// このプラグイン単体だとスクリーンサイズの近似値補正が必要かもしれない。
 
    //_realScaleの更新後の値でフィルタの有効/無効の切り替えをするけど
    //Styleプロパティのfilterが更新されても、実際の反映が少し遅れることがあったような
@@ -481,4 +480,3 @@ krsf.screenSharpness = krsf.screenSharpness || (krsf.screenSharpness = {});
 
    createFilterElement();
 })();
-
