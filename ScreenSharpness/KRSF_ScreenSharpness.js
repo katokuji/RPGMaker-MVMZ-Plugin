@@ -5,7 +5,7 @@
 //=============================================================================
 
 /*:
- * @target MV
+ * @target MV MZ
  * @plugindesc Apply a sharpness filter to GameCanvas.
  * @author katokuji
  *  
@@ -73,7 +73,7 @@
  */
 
 /*:ja
- * @target MV
+ * @target MV MZ
  * @plugindesc ゲーム画面（Canvas）にシャープ効果をかけて鮮明化します
  * @author katokuji
  *  
