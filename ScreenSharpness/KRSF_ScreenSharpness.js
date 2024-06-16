@@ -388,6 +388,7 @@ krsf.screenSharpness = krsf.screenSharpness || (krsf.screenSharpness = {});
 //(24/06/08)kuji:
 // _realScaleが0.999875とか1px未満の誤差がでるケースがあったような気がする。スクリーンサイズが小数点で誤差でるみたいなの。
 // このプラグイン単体だとスクリーンサイズの近似値補正が必要かもしれない。
+// Math.abs(Math.round(Graphics._realScale) - Graphics._realScale) < 0.001
 
    //_realScaleの更新後の値でフィルタの有効/無効の切り替えをするけど
    //Styleプロパティのfilterが更新されても、実際の反映が少し遅れることがあったような
